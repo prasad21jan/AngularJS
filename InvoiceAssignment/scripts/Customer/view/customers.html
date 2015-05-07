@@ -1,0 +1,15 @@
+<div ng-controller="customerCntrl">
+<h1>Customer List</h1>
+
+
+    <table>
+        <th>Customer Name</th>
+        <th>Customer Address</th>
+        <tr ng-repeat="n in custlist">
+        <td>{{n.name}}</td>
+            <td>{{n.address}}</td>
+        </tr>
+    </table>
+
+
+</div>

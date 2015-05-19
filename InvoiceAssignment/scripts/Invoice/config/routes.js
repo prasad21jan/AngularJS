@@ -22,5 +22,10 @@ angular.module('Invoice').config(function($stateProvider,$urlRouterProvider){
             url: "invoiceList",
             templateUrl: "scripts/Invoice/view/invoiceList.html"
         })
+        .state('invoiceList.invoiceDetail', {
+            url: "/invoiceList/:id",
+            templateUrl: "scripts/Invoice/view/invoiceDetail.html",
+            controller: "invoiceCntrl"
+        })
 
 });

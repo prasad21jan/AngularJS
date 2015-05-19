@@ -21,5 +21,10 @@ angular.module('Customer').config(function($stateProvider,$urlRouterProvider){
             templateUrl: "scripts/Customer/view/addCustomer.html"
 
         })
+        .state('customer.customerDetail', {
+            url: "/customer/:custid",
+            templateUrl: "scripts/Customer/view/customerDetail.html",
+            controller: "invoiceCntrl"
+        })
 
 });

@@ -5,16 +5,19 @@
     <script src="angular.min.js"></script>
     <title>Example Of Two Way Binding with AngularJS</title>
 </head>
+
 <body ng-app="myApp" >
+
 <div ng-controller="myCtrl">
     <label>Name</label>
     <input type="text" ng-model="name" placeholder="Enter Name">
-      <button ng-click="addName()">ADD</button>
+    <button ng-click="addName()">ADD</button>
     <h1>List 1</h1>
     <ol>
         <li ng-repeat="n in names">{{n}}</li>
     </ol>
 </div>
+
 <div ng-controller="myCtrl">
     <label>Name</label>
     <input type="text" ng-model="name" placeholder="Enter Name">
@@ -25,17 +28,29 @@
     </ol>
 </div>
 
+
 <script>
-    var app=angular.module("myApp",[])
-    app.controller('myCtrl',function($scope) {
+    var app=angular.module("myApp",[]);
+     app.factory("myService",[function(){
+         return({
+             items:[
+                   'name 1',
+                   'name 2'
+                   ],
+                addName: function(name){
+                    this.items.push(name);
+                }
+         })
+     }]);
+
+
+    app.controller('myCtrl',['$scope','myService',function($scope , myService){
         $scope.addName = function () {
-            $scope.names.push($scope.name);
+            myService.addName($scope.name);
+            $scope.name='';
         };
-        $scope.names = [
-            'Name 1',
-            'Name 2'
-        ]
-    });
+        $scope.names=myService.items;
+    }]);
 </script>
 
 

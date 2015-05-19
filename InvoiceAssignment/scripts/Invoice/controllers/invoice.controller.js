@@ -2,6 +2,7 @@
  * Created by prasadd on 4/22/2015.
  */
 angular.module('Invoice').controller('invoiceCntrl',['$scope','invoiceService','customerService','itemService','$stateParams',function($scope ,invoiceService,customerService,itemService,$stateParams){
+
     $scope.addInvoice = function () {
         $scope.invoiceid = $scope.invoiceList.length + 1;
         var custid=$scope.selectedcust;

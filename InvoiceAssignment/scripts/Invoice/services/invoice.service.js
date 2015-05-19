@@ -21,7 +21,7 @@ angular.module('Invoice').factory('itemService',[function(){
         },
         clearlist : function(){
             this.itemlist=[];
-            this.totalcost=0;
+            this.totalcst=0;
         }
     })
 }]);

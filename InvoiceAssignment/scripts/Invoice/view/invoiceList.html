@@ -21,15 +21,15 @@
                 <tbody>
                 <tr ng-repeat="invoices in invoiceList">
                     <td>
-                        <a ui-sref='invoiceList.invoiceDetail({id:invoices.invoiceid})'>
-                            {{invoices.invoiceid}}
+                        <a ui-sref='invoiceList.invoiceDetail({id:invoices.invoiceId})'>
+                            {{invoices.invoiceId}}
                         </a>
                     </td>
                     <td>
-                        {{invoices.custinvoiceid}}
+                        {{invoices.custInvoiceId}}
                     </td>
                     <td>
-                        {{(custlist | filter : {custid: invoices.custinvoiceid })[0].name }}
+                        {{(custlist | filter : {custid: invoices.custInvoiceId})[0].name }}
                     </td>
                     <td>
                         {{invoices.totalcost}}

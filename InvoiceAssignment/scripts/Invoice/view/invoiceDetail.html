@@ -8,7 +8,7 @@
                         Invoice ID
                     </th>
                     <th>
-                        Customer ID
+                        Customer Name
                     </th>
                     <th>
                         Invoice Detail
@@ -22,12 +22,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="invoices in invoiceList|filter:{invoiceid:invoicelstid}">
+                <tr ng-repeat="invoices in invoiceList|filter:{invoiceId:invoicelstid}">
                     <td>
-                        {{invoices.invoiceid}}
+                        {{invoices.invoiceId}}
                     </td>
                     <td>
-                        {{(custlist | filter : {custid: invoices.custinvoiceid })[0].name }}
+                        {{(custlist | filter : {custid: invoices.custInvoiceId })[0].name }}
                     </td>
                     <td>
                         <table class="table">
@@ -48,7 +48,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="item in invoices.itemlst">
+                            <tr ng-repeat="item in invoices.itemlist">
                                 <td>
                                     {{item.itemtitle}}
                                 </td>

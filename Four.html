@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="angular.min.js"></script>
+    <title>Example Of Directive</title>
+</head>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+    <h1>Filtered List</h1>
+    <my-list></my-list>
+
+
+    <h1>UnFiltered List</h1>
+    <my-list></my-list>
+
+    <h1></h1>
+    <my-element info="ABCD"></my-element>
+
+</div>
+
+<script>
+    var app=angular.module("myApp",[]);
+    app.factory("myService",[function(){
+        return({
+            items:[
+                'item one',
+                'item day',
+                'sunday'
+            ],
+            addName: function(name){
+                this.items.push(name);
+            }
+        })
+    }]);
+
+
+    app.controller('myCtrl',['$scope','myService',function($scope , myService){
+        $scope.addName = function () {
+            myService.addName($scope.name);
+            $scope.name='';
+        };
+        $scope.names=myService.items;
+    }]);
+
+    app.filter('myFilter',[function(){
+        var filter=function(items) {
+            var filtered = [];
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                if (item.search(/day/) != -1) {
+                    filtered.push(item);
+                }
+            }
+            return filtered;
+        }
+        return filter;
+    }]);
+
+    app.filter('capFilter',function(){
+        return function(text){
+            return text.toString().toUpperCase();
+        }
+    })
+    app.directive('myList',function(){
+        return {
+            template: '<ol>\
+                         <li ng-repeat="n in names" ng-bind="n"></li>\
+                       </ol>'
+        };
+    });
+      app.directive('myElement',function(){
+                  return {
+                      scope: {
+                          text:"info"
+                      },
+                      template :'<span>Item-{{text}}</span>'
+                  }
+
+              }
+      );
+
+</script>
+
+</body>
+</html>

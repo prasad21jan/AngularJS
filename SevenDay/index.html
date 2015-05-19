@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../angular.js"></script>
+    <script src="../angular-ui-router.js"></script>
+
+    <![endif]-->
+</head>
+<body>
+
+
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<!--    <label>Name</label>
+    <input type="text" ng-model="name" placeholder="Enter Name">
+    <button ng-click="addName()">ADD</button>
+
+
+    <h1>Filtered List</h1>
+    <my-list></my-list>
+
+
+    <h1>UnFiltered List</h1>
+    <my-list></my-list>-->
+
+
+    <h1>Synerzip</h1>
+
+    <a ui-sref="state1">State 1</a> |
+    <a ui-sref="state2">State 2</a> |
+    <a ui-sref="state3">State 3</a>
+
+
+    <h2>Content</h2>
+
+    <div ui-view></div>
+
+    <h2>Footer</h2>
+
+</div>
+
+
+
+<script src="scripts/common/common.module.js"></script>
+<script src="scripts/common/directives/listItem.js"></script>
+<script src="scripts/names/names.module.js"></script>
+
+
+<script src="scripts/names/services/names.service.js"></script>
+<script src="scripts/names/filter/names.filter.js"></script>
+<script src="scripts/names/controllers/names.controller.js"></script>
+
+<script src="scripts/names/config/routes.js"></script>
+
+
+<script src="scripts/app.js"></script>
+</body>
+
+</html>
